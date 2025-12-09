@@ -1,0 +1,27 @@
+Prometheus actions
+
+cd /path/to/your-repo/monitoring
+
+# Get latest stable version numbers (replace if you need a specific one)
+PROM_VERSION="3.8.0"  # example; adjust as needed
+curl -LO "https://github.com/prometheus/prometheus/releases/download/v${PROM_VERSION}/prometheus-${PROM_VERSION}.windows-amd64.tar.gz"
+tar -xzf "prometheus-${PROM_VERSION}.windows-amd64.tar.gz"
+mkdir -p prometheus/bin
+mv "prometheus-${PROM_VERSION}.windows-amd64/prometheus" prometheus/bin/
+mv "prometheus-${PROM_VERSION}.windows-amd64/promtool" prometheus/bin/
+rm -rf "prometheus-${PROM_VERSION}.windows-amd64" "prometheus-${PROM_VERSION}.windows-amd64.tar.gz"
+
+
+Grafana
+
+GRAFANA_VERSION="11.2.0"  # example; adjust as needed
+curl -LO "https://dl.grafana.com/grafana-enterprise/release/12.2.2/grafana-enterprise_12.2.2_19496034263_windows_amd64.tar.gz"
+
+tar -xzf "grafana-enterprise_12.2.2_19496034263_windows_amd64.tar.gz"
+
+# this next step is wrong, needs the whole folder not the parts
+mkdir -p grafana/bin grafana/conf
+mv "grafana-12.2.2/bin/grafana-server" grafana/bin/
+mv "grafana-12.2.2/conf/defaults.ini" grafana/conf/
+rm -rf "grafana-12.2.2" "grafana-12.2.2.windows-amd64.tar.gz"
+chmod +x grafana/bin/grafana-server
