@@ -16,11 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import hello, fetch
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django_prometheus.urls')),
-    path('hello/', hello, name='hello'),
-    path('fetch/', fetch, name='fetch'),
+    path('hello/', views.hello, name='hello'),
+    path('fetch/', views.fetch, name='fetch'),
+    path('health/', views.health, name='health'),
+    path('error-500/', views.error_500, name='error_500'),
+    path('raise-error/', views.raise_error, name='raise_error'),
+    path('random-error/', views.random_error, name='random_error'),
+    path('timeout/', views.timeout, name='timeout'),
+    path('bad-request/', views.bad_request, name='bad_request'),
+    path('redirect/', views.redirect, name='redirect'),
 ]
