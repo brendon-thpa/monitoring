@@ -1,6 +1,18 @@
 import random
 import time
 from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest, HttpResponseServerError
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import (
+    BatchSpanProcessor,
+    ConsoleSpanExporter,
+)
+
+trace.set_tracer_provider(TracerProvider())
+
+trace.get_tracer_provider().add_span_processor(
+    BatchSpanProcessor(ConsoleSpanExporter())
+)
 
 def hello(request):
     return HttpResponse("hello world")
