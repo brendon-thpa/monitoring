@@ -21,6 +21,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django_prometheus.urls')),
+    path('sample/', include('sample.urls')),
     path('hello/', views.hello, name='hello'),
     path('fetch/', views.fetch, name='fetch'),
     path('health/', views.health, name='health'),
