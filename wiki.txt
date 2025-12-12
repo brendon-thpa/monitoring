@@ -25,3 +25,6 @@ mv "grafana-12.2.2/bin/grafana-server" grafana/bin/
 mv "grafana-12.2.2/conf/defaults.ini" grafana/conf/
 rm -rf "grafana-12.2.2" "grafana-12.2.2.windows-amd64.tar.gz"
 chmod +x grafana/bin/grafana-server
+
+
+added to gitlab
