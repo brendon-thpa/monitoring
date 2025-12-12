@@ -27,4 +27,4 @@ rm -rf "grafana-12.2.2" "grafana-12.2.2.windows-amd64.tar.gz"
 chmod +x grafana/bin/grafana-server
 
 
-added to gitlab
+removed to gitlab
